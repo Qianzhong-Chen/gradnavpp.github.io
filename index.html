@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
+  <meta name="keywords" content="Reinforcement Learning, Differentibale Simulation, Visual Navigation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
+  <meta name="author" content="Qianzhong Chen">
+  <meta property="og:title" content="GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
+  <meta property="og:description" content="GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
+  <meta property="og:url" content="https://qianzhong-chen.github.io/gradnav.github.io/">
+
+  <title>GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics</title>
+
+
+    <!-- Thumbnail for social media sharing -->
+    <!-- <meta property="og:image" content="media/thumbnail.jpg"> -->
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="media/thumbnail.jpg" type="image/jpeg"> -->
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
+
+    <script>
+        function updateInTheWild() {
+            var task = document.getElementById("inthewild-video-menu").value;
+
+            console.log("updateInTheWild", task)
+
+            var video = document.getElementById("inthewild-video");
+            video.src = "media/videos/" +
+                task +
+                ".m4v"
+            video.play();
+        }
+
+        function updateBimanual() {
+            var task = document.getElementById("bimanual-video-menu").value;
+
+            console.log("updateBimanual", task)
+
+            var video = document.getElementById("bimanual-video");
+            video.src = "media/videos/1_" +
+                task +
+                ".mp4"
+            video.play();
+        }
+
+        function updateClothes() {
+            var task = document.getElementById("clothes-video-menu").value;
+
+            console.log("updateclothes", task)
+
+            var img = document.getElementById("clothes-img");
+            img.src = "media/fold-strategies/" +
+                task +
+                ".jpeg"
+
+            var video = document.getElementById("clothes-video");
+            video.src = "media/videos/fold-" +
+                task +
+                ".mp4"
+            video.play();
+        }
+    </script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <link rel="stylesheet" href="./static/source_serif_4.css">
+    <link rel="stylesheet" href="./static/source_sans_3.css">
+    <link rel="stylesheet" href="./static/academicons.min.css">
+    <link rel="stylesheet" href="./static/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="./static/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="./static/fontawesome/css/light.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body onload="updateInTheWild();updateBimanual();">
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-fullhd">
+        <div class="columns is-centered">
+            <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics</h1>
+            <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                <a target="_blank" href="https://qianzhong-chen.github.io/">Qianzhong Chen</a><sup>1</sup>,
+                <a target="_blank" href="https://web.stanford.edu/~jksun/">Jiankai Sun</a><sup>1</sup>,
+                <a target="_blank" href="https://www.linkedin.com/in/naixiang-gao-543348272/">Naixiang Gao</a><sup>1</sup>
+                <a target="_blank" href="https://msl.stanford.edu/people/junenlow">JunEn Low</a><sup>1</sup>
+                <a target="_blank" href="https://msl.stanford.edu/people/timchen">Timothy Chen</a><sup>1</sup>
+                <a target="_blank" href="https://web.stanford.edu/~schwager/">Mac Schwager</a><sup>1</sup>
+                </span>
+            </div>
+            <div class="is-size-5 affiliation">
+                <sup>1</sup>Stanford University
+            </div>
+            <br>
+            <!-- <div class="affiliation-note">
+                <sup>*</sup> indicates equal contributions
+            </div> -->
+            <div class="button-container">
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+      
+
+    <div class="buttons is-centered" style="display: flex; justify-content: center; gap: 10px; max-width: 400px; margin: auto;">
+        <a class="button is-primary" style="flex: 1; max-width: 180px; text-align: center;" href="https://arxiv.org/abs/2503.03984" target="_blank">Arxiv</a>
+        <a class="button is-link" style="flex: 1; max-width: 180px; text-align: center;" href="https://github.com/Qianzhong-Chen/grad_nav.git" target="_blank">Code</a>
+    </div>
+    
+    
+    
+    
+
+    <section class="hero teaser">
+        <div class="container is-max-widescreen">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-vcentered  is-centered">
+                        <video id="teaser" muted loop controls height="100%" width="100%">
+            <source src="media/videos/GRaD_Nav.mp4"
+                    type="video/mp4">
+          </video>
+                        </br>
+                    </div>
+                    <br>
+                    <h2 class="subtitle has-text-centered">
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container is-max-widescreen">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Autonomous visual navigation is an essential ele-
+                            ment in robot autonomy. Reinforcement learning (RL) offers
+                            a promising policy training paradigm. However existing RL
+                            methods suffer from high sample complexity, poor sim-to-real
+                            transfer, and limited runtime adaptability to navigation scenar-
+                            ios not seen during training. These problems are particularly
+                            challenging for drones, with complex nonlinear and unstable
+                            dynamics, and strong dynamic coupling between control and
+                            perception. In this paper, we propose a novel framework that
+                            integrates 3D Gaussian Splatting (3DGS) with differentiable
+                            deep reinforcement learning (DDRL) to train vision-based
+                            drone navigation policies. By leveraging high-fidelity 3D scene
+                            representations and differentiable simulation, our method im-
+                            proves sample efficiency and sim-to-real transfer. Additionally,
+                            we incorporate a Context-aided Estimator Network (CENet)
+                            to adapt to environmental variations at runtime. Moreover,
+                            by curriculum training in a mixture of different surrounding
+                            environments, we achieve in-task generalization, the ability to
+                            solve new instances of a task not seen during training. Drone
+                            hardware experiments demonstrate our method's high training
+                            efficiency compared to state-of-the-art RL methods, zero shot
+                            sim-to-real transfer for real robot deployment without fine
+                            tuning, and ability to adapt to new instances within the same
+                            task class (e.g. to fly through a gate at different locations with
+                            different distractors in the environment).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="rounded">
+            <div class="rows">
+                <h2 class="title is-3">Overview of GRaD-Nav</h2>
+                <div class="column1 has-text-centered">
+                    <img src="media/figures/model_structure.png" alt="arch-imag" style="width:80%">
+                </div>
+                <p class="content has-text-justified">
+                    Our GRaD-Nav architecture combines a visual+dynamics context encoder (CENet) within an 
+                    Actor-Critic framework, trained end-to-end using a differentiable drone dynamics model 
+                    and 3D Gaussian Splatting scene representation for photo-realistic visuals at training time. 
+                    The policy transfers zero-shot to drone hardware and adapts to new navigation task instances at runtime.
+                </p>
+            </div>
+
+            <hr class="rounded">
+            <div class="rows">
+                <h2 class="title is-3">Results of GRaD-Nav</h2>
+
+                <h4 class="title is-4">Sample Efficiency</h4>
+                <div class="column1 has-text-centered">
+                    <img src="media/figures/algo_benchmark_smooth.png" alt="arch-imag" style="width:70%">
+                </div>
+
+                <p class="content has-text-justified">
+                    Sample efficiency and wall-clock time comparison
+                    benchmark of different algorithms on drone's vision-based
+                    end-to-end navigation policy training. Our method achieves
+                    over 300% sample efficiency and uses only 20% of training
+                    time to deliver a better policy compared with current RL algoruthms.
+                </p>
+                
+                <h4 class="title is-4">Long-episodes navigation results</h4>
+                <div class="column1">
+                    <img src="media/figures/gs_traj_plot_archive.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Example success trajectories in hybrid simulation environments achieved by the proposed method. The left one is
+                    “middle gate” and the right one is “right gate”.
+                </p>
+                <h4 class="title is-4">Taks-level generalization ability</h4>
+                <div class="column1">
+                    <img src="media/figures/gen_traj_plot_archive.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Generalizable policy to fly through gates at different positions and with different distractor objects.
+                </p>
+
+                <h4 class="title is-4">Hardware experiments</h4>
+                <div class="column1">
+                    <img src="media/figures/composite_image.jpg" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Robot hardware experiments of drone flying through middle gate.
+                </p>
+                
+            </div>
+
+            <hr class="rounded">
+            <div class="rows">
+                <h2 class="title is-3">Citations</h2>
+                <p class="content has-text-justified">
+                    If you find our work useful in your research, please consider citing:
+                </p>
+                <pre><code>
+@misc{chen2025gradnavefficientlylearningvisual,
+      title={GRaD-Nav: Efficiently Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics}, 
+      author={Qianzhong Chen and Jiankai Sun and Naixiang Gao and JunEn Low and Timothy Chen and Mac Schwager},
+      year={2025},
+      eprint={2503.03984},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2503.03984}, 
+    }
+                </code></pre>
+            </div>
+            
+            
+
+    </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <div class="content has-text-centered">
+                        <p>
+                            Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
