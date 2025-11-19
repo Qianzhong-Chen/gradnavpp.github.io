@@ -4,17 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
-  <meta name="keywords" content="Reinforcement Learning, Differentibale Simulation, Visual Navigation">
+        content="GRaD-Nav++: Vision-Language Model Enabled Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
+  <meta name="keywords" content="VLA model, Reinforcement Learning, Differentiable Simulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
+  <meta name="description" content="Vision-Language Model Enabled Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
   <meta name="author" content="Qianzhong Chen">
-  <meta property="og:title" content="GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
-  <meta property="og:description" content="GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
+  <meta property="og:title" content="GRaD-Nav++: Vision-Language Model Enabled Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
+  <meta property="og:description" content="GRaD-Nav++: Vision-Language Model Enabled Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics">
   <meta property="og:url" content="https://qianzhong-chen.github.io/gradnav.github.io/">
 
-  <title>GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics</title>
-
+  <title>GRaD-Nav++: Vision-Language Model Enabled Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics</title>
 
     <!-- Thumbnail for social media sharing -->
     <!-- <meta property="og:image" content="media/thumbnail.jpg"> -->
@@ -102,13 +101,15 @@
         <div class="container is-fullhd">
         <div class="columns is-centered">
             <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">GRaD-Nav: Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics</h1>
+            <h1 class="title is-1 publication-title">GRaD-Nav++: Vision-Language Model Enabled Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics</h1>
             <div class="is-size-5 publication-authors">
                 <span class="author-block">
                 <a target="_blank" href="https://qianzhong-chen.github.io/">Qianzhong Chen</a><sup>1</sup>,
+                <a target="_blank" href="https://www.linkedin.com/in/naixiang-gao-543348272/">Naixiang Gao</a><sup>1</sup>,
+                <a target="_blank" href="https://suninghuang19.github.io/">Suning Huang</a><sup>1</sup>,
+                <a target="_blank" href="https://msl.stanford.edu/people/junenlow">JunEn Low</a><sup>1</sup>,
+                <a target="_blank" href="https://msl.stanford.edu/people/timchen">Timothy Chen</a><sup>1</sup>,
                 <a target="_blank" href="https://web.stanford.edu/~jksun/">Jiankai Sun</a><sup>1</sup>,
-                <a target="_blank" href="https://www.linkedin.com/in/naixiang-gao-543348272/">Naixiang Gao</a><sup>1</sup>
-                <a target="_blank" href="https://msl.stanford.edu/people/junenlow">JunEn Low</a><sup>1</sup>
                 <a target="_blank" href="https://msl.stanford.edu/people/timchen">Timothy Chen</a><sup>1</sup>
                 <a target="_blank" href="https://web.stanford.edu/~schwager/">Mac Schwager</a><sup>1</sup>
                 </span>
@@ -130,7 +131,8 @@
       
 
     <div class="buttons is-centered" style="display: flex; justify-content: center; gap: 10px; max-width: 400px; margin: auto;">
-        <a class="button is-primary" style="flex: 1; max-width: 180px; text-align: center;" href="https://arxiv.org/abs/2503.03984" target="_blank">Arxiv</a>
+        <a class="button is-primary" style="flex: 1; max-width: 180px; text-align: center;" href="https://qianzhong-chen.github.io/gradnav.github.io/" target="_blank">Prev. Work</a>
+        <a class="button is-primary" style="flex: 1; max-width: 180px; text-align: center;" href="https://www.arxiv.org/abs/2506.14009" target="_blank">Arxiv</a>
         <a class="button is-link" style="flex: 1; max-width: 180px; text-align: center;" href="https://github.com/Qianzhong-Chen/grad_nav.git" target="_blank">Code</a>
     </div>
     
@@ -144,7 +146,7 @@
                 <div class="container">
                     <div class="columns is-vcentered  is-centered">
                         <video id="teaser" muted loop controls height="100%" width="100%">
-            <source src="media/videos/GRaD_Nav.mp4"
+            <source src="media/videos/grad_nav_pp.mp4"
                     type="video/mp4">
           </video>
                         </br>
@@ -162,31 +164,7 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            Autonomous visual navigation is an essential ele-
-                            ment in robot autonomy. Reinforcement learning (RL) offers
-                            a promising policy training paradigm. However existing RL
-                            methods suffer from high sample complexity, poor sim-to-real
-                            transfer, and limited runtime adaptability to navigation scenar-
-                            ios not seen during training. These problems are particularly
-                            challenging for drones, with complex nonlinear and unstable
-                            dynamics, and strong dynamic coupling between control and
-                            perception. In this paper, we propose a novel framework that
-                            integrates 3D Gaussian Splatting (3DGS) with differentiable
-                            deep reinforcement learning (DDRL) to train vision-based
-                            drone navigation policies. By leveraging high-fidelity 3D scene
-                            representations and differentiable simulation, our method im-
-                            proves sample efficiency and sim-to-real transfer. Additionally,
-                            we incorporate a Context-aided Estimator Network (CENet)
-                            to adapt to environmental variations at runtime. Moreover,
-                            by curriculum training in a mixture of different surrounding
-                            environments, we achieve in-task generalization, the ability to
-                            solve new instances of a task not seen during training. Drone
-                            hardware experiments demonstrate our method's high training
-                            efficiency compared to state-of-the-art RL methods, zero shot
-                            sim-to-real transfer for real robot deployment without fine
-                            tuning, and ability to adapt to new instances within the same
-                            task class (e.g. to fly through a gate at different locations with
-                            different distractors in the environment).
+                            Autonomous drones capable of interpreting and executing high-level language instructions in unstructured environments remain a long-standing goal. Yet existing approaches are constrained by their dependence on hand-crafted skills, extensive parameter tuning, or computationally intensive models unsuitable for onboard use. We introduce GRaD-Nav++, a lightweight Vision-Language-Action (VLA) framework that runs fully onboard and follows natural-language commands in real time. Our policy is trained in a photorealistic 3D Gaussian Splatting (3DGS) simulator via Differentiable Reinforcement Learning (DiffRL), enabling efficient learning of low-level control from visual and linguistic inputs. At its core is a Mixture-of-Experts (MoE) action head, which adaptively routes computation to improve generalization while mitigating forgetting. In multi-task generalization experiments, GRaD-Nav++ achieves a success rate of 83% on trained tasks and 75% on unseen tasks in simulation. When deployed on real hardware, it attains 67% success on trained tasks and 50% on unseen ones. In multi-environment adaptation experiments, GRaD-Nav++ achieves an average success rate of 81% across diverse simulated environments and 67% across varied real-world settings. These results establish a new benchmark for fully onboard Vision-Language-Action (VLA) flight and demonstrate that compact, efficient models can enable reliable, language-guided navigation without relying on external infrastructure.
                         </p>
                     </div>
                 </div>
@@ -194,59 +172,65 @@
 
             <hr class="rounded">
             <div class="rows">
-                <h2 class="title is-3">Overview of GRaD-Nav</h2>
+                <h2 class="title is-3">Overview of GRaD-Nav++</h2>
                 <div class="column1 has-text-centered">
                     <img src="media/figures/model_structure.png" alt="arch-imag" style="width:80%">
                 </div>
                 <p class="content has-text-justified">
-                    Our GRaD-Nav architecture combines a visual+dynamics context encoder (CENet) within an 
-                    Actor-Critic framework, trained end-to-end using a differentiable drone dynamics model 
-                    and 3D Gaussian Splatting scene representation for photo-realistic visuals at training time. 
-                    The policy transfers zero-shot to drone hardware and adapts to new navigation task instances at runtime.
+                    Our GRaD-Nav++ architecture leverages a Vision-Language Model (VLM) to  offer the down stream policy network an informative and semantically rich representation of the environment given high-level language commands. The mixture of experts (MoE) action head adaptively routes computation through specialized experts to enhance generalization and mitigate forgetting when learning multiple tasks. The entire model is trained end-to-end via Differentiable Reinforcement Learning (DiffRL) in a photorealistic 3D Gaussian Splatting (3DGS) simulator, enabling efficient learning of low-level control from visual and linguistic inputs.
                 </p>
             </div>
 
             <hr class="rounded">
             <div class="rows">
-                <h2 class="title is-3">Results of GRaD-Nav</h2>
+                <h2 class="title is-3">Results of GRaD-Nav++</h2>
+            
+                <h4 class="title is-4">Multi Long-Horizon Tasks Generalization Experiment</h4>
+                <div class="column1">
+                    <img src="media/figures/long_task.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Example trajectories of untrained long horizon tasks.
+                    The instructions are “GO THROUGH gate then STOP over
+                    CART” (left) and “FLY past the RIGHT side of the gate then
+                    STOP over MONITOR” (right).
+                </p>
+                <h4 class="title is-4">Multi Environment Adaptation Experiment</h4>
+                <div class="column1">
+                    <img src="media/figures/multi_env.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Demonstration of multi-environment adaptation in real-world experiments using video frame overlay visualization. The
+                    top row shows the drone flying to the left of, through, above, and to the right of the gate in the middle-gate environment.
+                    The bottom row shows the drone executing the same directional tasks in the left-gate environment. Red arrowed curves
+                    illustrate the approximate flight trajectories. The learned policy demonstrates robust generalization to varying environments,
+                    adapting to changes in gate positions and the presence of distractor objects.
+                </p>
 
-                <h4 class="title is-4">Sample Efficiency</h4>
+                <h4 class="title is-4">Task Shift Experiment</h4>
+                <div class="column1">
+                    <img src="media/figures/task_shift.png" alt="arch-imag" style="width:100%">
+                </div>
+                <p class="content has-text-justified">
+                    Task-switching experiment with instruction change at
+                    step 100. Left: Experiment scene showing the drone flying
+                    past the gate. Right: Normalized cosine similarity between
+                    text and visual embeddings over time, reflecting the VLM's
+                    ability to re-ground the new instruction.
+                </p>
+
+                <h4 class="title is-4">MoE Loading</h4>
                 <div class="column1 has-text-centered">
-                    <img src="media/figures/algo_benchmark_smooth.png" alt="arch-imag" style="width:70%">
+                    <img src="media/figures/moe.png" alt="arch-imag" style="width:70%">
                 </div>
 
                 <p class="content has-text-justified">
-                    Sample efficiency and wall-clock time comparison
-                    benchmark of different algorithms on drone's vision-based
-                    end-to-end navigation policy training. Our method achieves
-                    over 300% sample efficiency and uses only 20% of training
-                    time to deliver a better policy compared with current RL algoruthms.
-                </p>
-                
-                <h4 class="title is-4">Long-episodes navigation results</h4>
-                <div class="column1">
-                    <img src="media/figures/gs_traj_plot_archive.png" alt="arch-imag" style="width:100%">
-                </div>
-                <p class="content has-text-justified">
-                    Example success trajectories in hybrid simulation environments achieved by the proposed method. The left one is
-                    “middle gate” and the right one is “right gate”.
-                </p>
-                <h4 class="title is-4">Taks-level generalization ability</h4>
-                <div class="column1">
-                    <img src="media/figures/gen_traj_plot_archive.png" alt="arch-imag" style="width:100%">
-                </div>
-                <p class="content has-text-justified">
-                    Generalizable policy to fly through gates at different positions and with different distractor objects.
+                    Experts' usage intensity when executing the same task (“GO THROUGH gate”) at different surrounding environments (top-left gate, bottom-middle gate). The results
+                    demonstrate that the MoE architecture adaptively allocates
+                    expert resources according to the specific demands of each
+                    environment.
                 </p>
 
-                <h4 class="title is-4">Hardware experiments</h4>
-                <div class="column1">
-                    <img src="media/figures/composite_image.jpg" alt="arch-imag" style="width:100%">
-                </div>
-                <p class="content has-text-justified">
-                    Robot hardware experiments of drone flying through middle gate.
-                </p>
-                
             </div>
 
             <hr class="rounded">
@@ -256,15 +240,12 @@
                     If you find our work useful in your research, please consider citing:
                 </p>
                 <pre><code>
-@misc{chen2025gradnavefficientlylearningvisual,
-      title={GRaD-Nav: Efficiently Learning Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics}, 
-      author={Qianzhong Chen and Jiankai Sun and Naixiang Gao and JunEn Low and Timothy Chen and Mac Schwager},
-      year={2025},
-      eprint={2503.03984},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2503.03984}, 
-    }
+@article{chen2025grad,
+  title={GRaD-Nav++: Vision-Language Model Enabled Visual Drone Navigation with Gaussian Radiance Fields and Differentiable Dynamics},
+  author={Chen, Qianzhong and Gao, Naixiang and Huang, Suning and Low, JunEn and Chen, Timothy and Sun, Jiankai and Schwager, Mac},
+  journal={arXiv preprint arXiv:2506.14009},
+  year={2025}
+}
                 </code></pre>
             </div>
             
